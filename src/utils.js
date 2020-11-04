@@ -13,7 +13,7 @@ export const useRandomRange = (min, max) => {
 export const times = (n, fn) => [...Array(n)].map(fn)
 
 export const Colors = {
-  shape: '#fed766',
+  shape: '#6965fe',
   activeShape: '#e0607e',
   fog: 'darkorchid',
   light: 'red',
