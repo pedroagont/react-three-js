@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFrame } from 'react-three-fiber'
 import { Shape } from './Shape'
-import { times, randomRange, Ease } from './utils'
+import { times, randomRange } from './utils'
 
 const randomPosition = () => {
   // Position vector in the form of [x, y, z]
