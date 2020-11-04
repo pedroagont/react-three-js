@@ -4,6 +4,7 @@ import { useFrame } from 'react-three-fiber'
 import { Ease, useRandomRange, Colors } from './utils'
 
 export const Shape = ({ position = [0, 0, 0] }) => {
+  const [active, setActive] = React.useState(false)
   const meshRef = React.useRef()
   const factor = useRandomRange(0.5, 1.5)
 
@@ -16,14 +17,27 @@ export const Shape = ({ position = [0, 0, 0] }) => {
     meshRef.current.scale.y = 1 + t * 3
   })
 
+  const { color, scale } = useSpring({
+    color: active ? Colors.activeShape : Colors.shape,
+    scale: active ? [3, 3, 3] : [1, 1, 1],
+    config: config.wobbly,
+  })
+
   return (
-    <mesh ref={meshRef} position={position} castShadow receiveShadow>
+    <animated.mesh
+      ref={meshRef}
+      position={position}
+      scale={scale}
+      onClick={() => setActive(!active)}
+      castShadow
+      receiveShadow
+    >
       <sphereBufferGeometry args={[0.5, 16, 16]} />
-      <meshStandardMaterial
-        color={Colors.shape}
+      <animated.meshStandardMaterial
+        color={color}
         roughness={0}
         metalness={0.2}
       />
-    </mesh>
+    </animated.mesh>
   )
 }
