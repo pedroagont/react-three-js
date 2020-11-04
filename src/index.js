@@ -8,7 +8,7 @@ import { ShapeCluster } from './ShapeCluster'
 import { Colors } from './utils'
 import './index.css'
 
-softShadows()
+softShadows() //comment this out for a better browser performance
 
 const Floor = () => {
   return (
@@ -25,10 +25,7 @@ const App = () => {
       <fog attach="fog" args={[Colors.fog, 8, 40]} />
       <Lights />
       <Floor />
-      <mesh castShadow receiveShadow>
-        <sphereBufferGeometry args={[0.5, 16, 16]} />
-        <meshStandardMaterial color={Colors.shape} />
-      </mesh>
+      <ShapeCluster />
     </Canvas>
   )
 }
