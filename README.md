@@ -1,3 +1,8 @@
+# Creative Coding with React + ThreeJS
+
+Created during JSConfMx 2020
+[https://react-three-js.netlify.app](https://react-three-js.netlify.app).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
